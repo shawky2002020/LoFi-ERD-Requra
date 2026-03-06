@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1440" />
+<title>Requra.AI – Stakeholder View</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1440px; font-family: 'Courier New', monospace; background: #FAFAFA; display: flex; flex-direction: column; min-height: 900px; }
+  .nav { width: 1440px; height: 64px; background: #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; flex-shrink: 0; }
+  .nav-logo { color: #FFFFFF; font-size: 16px; font-weight: 700; }
+  .readonly-badge { padding: 4px 12px; background: #333333; color: #AAAAAA; border: 1px solid #444444; border-radius: 3px; font-size: 10px; letter-spacing: 0.08em; }
+
+  .main { flex: 1; padding: 40px 80px; max-width: 860px; margin: 0 auto; width: 100%; }
+  .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; }
+  .project-title { font-size: 24px; font-weight: 700; }
+  .btn-approve-all { padding: 10px 22px; background: #1A1A1A; color: #FFFFFF; border: none; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 12px; font-weight: 700; }
+  .project-meta { font-size: 11px; color: #999999; margin-bottom: 32px; }
+  .section-label { font-size: 10px; color: #999999; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; }
+
+  /* SUMMARY */
+  .summary-card { background: #FFFFFF; border: 1.5px solid #D0D0D0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+  .summary-placeholder { width: 100%; height: 72px; background: #E8E8E8; border: 1.5px dashed #AAAAAA; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #AAAAAA; }
+
+  /* STORY CARDS */
+  .story-card { background: #FFFFFF; border: 1.5px solid #D0D0D0; border-radius: 6px; padding: 18px; margin-bottom: 12px; }
+  .story-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .story-title { font-size: 14px; font-weight: 700; }
+  .story-actions { display: flex; gap: 8px; }
+  .btn-approve { padding: 6px 14px; background: #1A1A1A; color: #FFFFFF; border: 1.5px solid #1A1A1A; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 10px; font-weight: 700; }
+  .btn-comment { padding: 6px 14px; background: #FFFFFF; color: #555555; border: 1.5px solid #CCCCCC; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 10px; }
+  .story-body { font-size: 12px; color: #555555; margin-bottom: 10px; line-height: 1.8; }
+  .story-body span { color: #AAAAAA; }
+  .acceptance { width: 100%; height: 32px; background: #F5F5F5; border: 1.5px dashed #CCCCCC; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #AAAAAA; }
+
+  /* COMMENT BOX */
+  .comment-card { background: #FFFFFF; border: 1.5px solid #D0D0D0; border-radius: 6px; padding: 20px; margin-top: 28px; }
+  .comment-area { width: 100%; height: 80px; background: #E8E8E8; border: 1.5px dashed #AAAAAA; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #AAAAAA; margin-bottom: 12px; }
+  .btn-submit { padding: 9px 20px; background: #1A1A1A; color: #FFFFFF; border: none; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 12px; font-weight: 700; }
+
+  .footer-note { text-align: center; font-size: 10px; color: #CCCCCC; padding: 20px 0; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-logo">REQURA.AI</div>
+  <div class="readonly-badge">READ-ONLY VIEW</div>
+</nav>
+
+<main class="main">
+  <div class="project-header">
+    <div>
+      <div class="project-title">E-Commerce Platform v2</div>
+    </div>
+    <button class="btn-approve-all">✓ Approve All</button>
+  </div>
+  <div class="project-meta">Shared by Carol Ehab · Acme Corporation · Generated on Jan 15, 2025</div>
+
+  <div class="section-label">Executive Summary</div>
+  <div class="summary-card">
+    <div class="summary-placeholder">[ AI-generated summary of key decisions, open questions, and action items from the meeting ]</div>
+  </div>
+
+  <div class="section-label">User Stories for Your Review (8)</div>
+
+  <div class="story-card">
+    <div class="story-header">
+      <div class="story-title">User Registration</div>
+      <div class="story-actions">
+        <button class="btn-approve">✓ Approve</button>
+        <button class="btn-comment">💬 Comment</button>
+      </div>
+    </div>
+    <div class="story-body">
+      <span>As a</span> New User<span>, I want to</span> create an account on the platform
+      <span>, so that</span> I can access the requirements management features.
+    </div>
+    <div class="acceptance">[ Acceptance Criteria — 3 items ]</div>
+  </div>
+
+  <div class="story-card">
+    <div class="story-header">
+      <div class="story-title">Upload Meeting Transcript</div>
+      <div class="story-actions">
+        <button class="btn-approve">✓ Approve</button>
+        <button class="btn-comment">💬 Comment</button>
+      </div>
+    </div>
+    <div class="story-body">
+      <span>As a</span> Business Analyst<span>, I want to</span> upload a PDF or audio transcript
+      <span>, so that</span> the AI system can extract requirements automatically.
+    </div>
+    <div class="acceptance">[ Acceptance Criteria — 4 items ]</div>
+  </div>
+
+  <div class="story-card">
+    <div class="story-header">
+      <div class="story-title">Export Requirements to Excel</div>
+      <div class="story-actions">
+        <button class="btn-approve">✓ Approve</button>
+        <button class="btn-comment">💬 Comment</button>
+      </div>
+    </div>
+    <div class="story-body">
+      <span>As a</span> Business Analyst<span>, I want to</span> export all approved user stories to Excel/CSV
+      <span>, so that</span> the development team can import them directly into Jira.
+    </div>
+    <div class="acceptance">[ Acceptance Criteria — 2 items ]</div>
+  </div>
+
+  <div class="section-label" style="margin-top: 28px;">Leave a General Comment</div>
+  <div class="comment-card">
+    <div class="comment-area">[ Text area — type your general feedback or questions for the Business Analyst ]</div>
+    <button class="btn-submit">Submit Comment</button>
+  </div>
+</main>
+
+<div class="footer-note">This is a read-only shared view. To edit requirements, contact carol@requra.ai · Powered by Requra.AI</div>
+</body>
+</html>

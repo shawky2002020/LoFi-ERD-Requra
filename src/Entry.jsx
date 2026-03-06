@@ -7,11 +7,11 @@ export default function Entry() {
 
   if (view === 'lofi') {
     return (
-      <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', width: '100%', minHeight: '100vh' }}>
         <button
           onClick={() => setView('menu')}
           style={{
-            position: 'fixed',
+            position: 'absolute',
             top: 10,
             left: '50%',
             transform: 'translateX(-50%)',
@@ -36,7 +36,7 @@ export default function Entry() {
 
   if (view === 'erd') {
     return (
-      <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
+      <div style={{ position: 'relative', width: '100%', minHeight: '100vh' }}>
         <button
           onClick={() => setView('menu')}
           style={{
@@ -66,7 +66,7 @@ export default function Entry() {
   return (
     <div style={{
       width: '100%',
-      height: '100%',
+      minHeight: '100vh',
       background: '#0a0a0a',
       color: '#fff',
       display: 'flex',
@@ -75,8 +75,7 @@ export default function Entry() {
       justifyContent: 'center',
       fontFamily: 'monospace',
       padding: 20,
-      boxSizing: 'border-box',
-      overflowY: 'auto'
+      boxSizing: 'border-box'
     }}>
       <div style={{
         marginBottom: 40,

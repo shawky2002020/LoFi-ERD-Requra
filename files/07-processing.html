@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1440" />
+<title>Requra.AI – AI Processing</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1440px; height: 900px; font-family: 'Courier New', monospace; background: #FAFAFA; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .card { width: 480px; background: #FFFFFF; border: 1.5px solid #D0D0D0; border-radius: 8px; padding: 44px; text-align: center; }
+  .robot-icon { width: 72px; height: 72px; background: #E8E8E8; border: 1.5px dashed #AAAAAA; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; margin: 0 auto 20px; }
+  .card-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .card-sub { font-size: 11px; color: #999999; margin-bottom: 28px; line-height: 1.6; }
+
+  /* PROGRESS BAR */
+  .progress-label { display: flex; justify-content: space-between; font-size: 10px; color: #999999; margin-bottom: 6px; }
+  .progress-bar { width: 100%; height: 8px; background: #E8E8E8; border-radius: 4px; overflow: hidden; margin-bottom: 28px; }
+  .progress-fill { width: 65%; height: 100%; background: #1A1A1A; border-radius: 4px; }
+
+  /* STEPS */
+  .steps-list { text-align: left; margin-bottom: 28px; }
+  .step-row { display: flex; align-items: center; gap: 14px; padding: 10px 0; border-bottom: 1px solid #F5F5F5; }
+  .step-row:last-child { border-bottom: none; }
+  .step-dot { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; flex-shrink: 0; }
+  .step-dot.done { background: #1A1A1A; color: #FFFFFF; }
+  .step-dot.active { background: #E8E8E8; border: 2px dashed #999999; color: #999999; font-size: 8px; }
+  .step-dot.pending { background: #F5F5F5; border: 1.5px dashed #DDDDDD; }
+  .step-text { font-size: 12px; }
+  .step-text.done { color: #333333; }
+  .step-text.active { color: #666666; font-weight: 700; }
+  .step-text.pending { color: #BBBBBB; }
+
+  .btn-primary { width: 100%; height: 44px; background: #1A1A1A; color: #FFFFFF; border: none; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px; font-weight: 700; cursor: pointer; }
+  .project-info { font-size: 10px; color: #BBBBBB; margin-top: 16px; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="robot-icon">🤖</div>
+    <div class="card-title">AI Processing in Progress</div>
+    <div class="card-sub">Analyzing your inputs and extracting structured requirements.<br/>This usually takes 30–60 seconds.</div>
+
+    <div class="progress-label">
+      <span>Progress</span>
+      <span>65%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+
+    <div class="steps-list">
+      <div class="step-row">
+        <div class="step-dot done">✓</div>
+        <div class="step-text done">Parsing document structure</div>
+      </div>
+      <div class="step-row">
+        <div class="step-dot done">✓</div>
+        <div class="step-text done">Identifying actors & stakeholders</div>
+      </div>
+      <div class="step-row">
+        <div class="step-dot done">✓</div>
+        <div class="step-text done">Extracting functional requirements</div>
+      </div>
+      <div class="step-row">
+        <div class="step-dot active">...</div>
+        <div class="step-text active">Generating user stories</div>
+      </div>
+      <div class="step-row">
+        <div class="step-dot pending"></div>
+        <div class="step-text pending">Classifying requirement types</div>
+      </div>
+      <div class="step-row">
+        <div class="step-dot pending"></div>
+        <div class="step-text pending">Generating executive summary</div>
+      </div>
+    </div>
+
+    <button class="btn-primary">View Results →</button>
+    <div class="project-info">E-Commerce Platform v2 · 2 files uploaded</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1440" />
+<title>Requra.AI – Export</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1440px; font-family: 'Courier New', monospace; background: #FAFAFA; display: flex; flex-direction: column; height: 900px; }
+  .nav { width: 1440px; height: 64px; background: #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; flex-shrink: 0; }
+  .nav-logo { color: #FFFFFF; font-size: 16px; font-weight: 700; }
+  .nav-btn { padding: 6px 14px; background: #333333; color: #CCCCCC; border: 1px solid #444444; border-radius: 3px; font-size: 11px; }
+  .layout { display: flex; flex: 1; overflow: hidden; }
+  .sidebar { width: 200px; background: #F7F7F7; border-right: 1.5px solid #E0E0E0; padding: 20px 0; flex-shrink: 0; }
+  .sidebar-item { padding: 11px 20px; font-size: 12px; color: #555555; display: flex; align-items: center; gap: 10px; border-left: 3px solid transparent; }
+  .sidebar-item.active { background: #EEEEEE; border-left-color: #1A1A1A; font-weight: 700; color: #1A1A1A; }
+  .main { flex: 1; padding: 24px 32px; overflow-y: auto; }
+
+  .page-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .page-subtitle { font-size: 11px; color: #999999; margin-bottom: 24px; }
+  .section-label { font-size: 10px; color: #999999; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; }
+
+  /* FORMAT CARDS */
+  .format-grid { display: flex; gap: 14px; margin-bottom: 28px; }
+  .format-card { flex: 1; background: #FFFFFF; border: 1.5px solid #D0D0D0; border-radius: 6px; padding: 18px; text-align: center; cursor: pointer; }
+  .format-card.selected { background: #1A1A1A; border-color: #1A1A1A; }
+  .format-card.disabled { opacity: 0.4; cursor: default; }
+  .format-name { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .format-card.selected .format-name { color: #FFFFFF; }
+  .format-sub { font-size: 10px; color: #999999; }
+  .format-card.selected .format-sub { color: #AAAAAA; }
+
+  /* COLUMN MAPPING */
+  .mapping-card { background: #FFFFFF; border: 1.5px solid #D0D0D0; border-radius: 6px; padding: 20px; margin-bottom: 28px; }
+  .mapping-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .mapping-row { display: flex; align-items: center; gap: 10px; }
+  .mapping-from { flex: 1; font-size: 11px; color: #555555; }
+  .mapping-arrow { color: #AAAAAA; font-size: 14px; }
+  .mapping-to { flex: 1; font-size: 11px; color: #333333; background: #F5F5F5; padding: 5px 10px; border-radius: 3px; }
+
+  /* PREVIEW TABLE */
+  .preview-table { width: 100%; border-collapse: collapse; font-size: 11px; margin-bottom: 24px; }
+  .preview-table th { background: #1A1A1A; color: #FFFFFF; padding: 9px 14px; text-align: left; font-weight: 700; }
+  .preview-table td { padding: 9px 14px; border-bottom: 1px solid #E8E8E8; color: #444444; }
+  .preview-table tr:nth-child(even) td { background: #F9F9F9; }
+
+  .actions { display: flex; gap: 12px; }
+  .btn-primary { padding: 10px 24px; background: #1A1A1A; color: #FFFFFF; border: none; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 12px; font-weight: 700; }
+  .btn-back { padding: 10px 24px; background: #FFFFFF; color: #1A1A1A; border: 1.5px solid #1A1A1A; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 12px; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-logo">REQURA.AI</div>
+  <div class="nav-btn">Profile ▾</div>
+</nav>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-item">⊞ Dashboard</div>
+    <div class="sidebar-item">+ New Project</div>
+    <div class="sidebar-item">≡ Results</div>
+    <div class="sidebar-item active">↑ Export</div>
+    <div class="sidebar-item">⚙ Settings</div>
+  </aside>
+  <main class="main">
+    <div class="page-title">Export Requirements</div>
+    <div class="page-subtitle">Download your approved stories in a format ready for your dev team</div>
+
+    <div class="section-label">Export Format</div>
+    <div class="format-grid">
+      <div class="format-card selected">
+        <div class="format-name">Excel (.xlsx)</div>
+        <div class="format-sub">Jira-ready format</div>
+      </div>
+      <div class="format-card">
+        <div class="format-name">CSV (.csv)</div>
+        <div class="format-sub">Raw data export</div>
+      </div>
+      <div class="format-card disabled">
+        <div class="format-name">Jira Push 🔒</div>
+        <div class="format-sub">Post-MVP feature</div>
+      </div>
+      <div class="format-card disabled">
+        <div class="format-name">Azure DevOps 🔒</div>
+        <div class="format-sub">Post-MVP feature</div>
+      </div>
+    </div>
+
+    <div class="section-label">Jira Column Mapping</div>
+    <div class="mapping-card">
+      <div class="mapping-grid">
+        <div class="mapping-row"><div class="mapping-from">Story Title</div><div class="mapping-arrow">→</div><div class="mapping-to">Summary</div></div>
+        <div class="mapping-row"><div class="mapping-from">Actor</div><div class="mapping-arrow">→</div><div class="mapping-to">Reporter</div></div>
+        <div class="mapping-row"><div class="mapping-from">Goal</div><div class="mapping-arrow">→</div><div class="mapping-to">Description</div></div>
+        <div class="mapping-row"><div class="mapping-from">Classification</div><div class="mapping-arrow">→</div><div class="mapping-to">Issue Type</div></div>
+        <div class="mapping-row"><div class="mapping-from">Acceptance Criteria</div><div class="mapping-arrow">→</div><div class="mapping-to">Acceptance Criteria</div></div>
+        <div class="mapping-row"><div class="mapping-from">Approval Status</div><div class="mapping-arrow">→</div><div class="mapping-to">Status</div></div>
+      </div>
+    </div>
+
+    <div class="section-label">Preview — 8 Approved Stories</div>
+    <table class="preview-table">
+      <thead>
+        <tr><th>#</th><th>Story Title</th><th>Actor</th><th>Classification</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>User Registration</td><td>New User</td><td>Functional</td><td>✓ Approved</td></tr>
+        <tr><td>2</td><td>Upload Transcript</td><td>Business Analyst</td><td>Functional</td><td>✓ Approved</td></tr>
+        <tr><td>3</td><td>View Generated Stories</td><td>Project Manager</td><td>Functional</td><td>✓ Approved</td></tr>
+        <tr><td>4</td><td>Export to Excel</td><td>Business Analyst</td><td>Business Rule</td><td>✓ Approved</td></tr>
+        <tr><td>5</td><td>Share with Stakeholder</td><td>Project Manager</td><td>Functional</td><td>✓ Approved</td></tr>
+      </tbody>
+    </table>
+
+    <div class="actions">
+      <button class="btn-back">← Back to Results</button>
+      <button class="btn-primary">⬇ Download Excel</button>
+    </div>
+  </main>
+</div>
+</body>
+</html>

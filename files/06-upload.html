@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1440" />
+<title>Requra.AI – File Upload</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1440px; font-family: 'Courier New', monospace; background: #FAFAFA; display: flex; flex-direction: column; height: 900px; }
+  .nav { width: 1440px; height: 64px; background: #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; flex-shrink: 0; }
+  .nav-logo { color: #FFFFFF; font-size: 16px; font-weight: 700; }
+  .nav-btn { padding: 6px 14px; background: #333333; color: #CCCCCC; border: 1px solid #444444; border-radius: 3px; font-size: 11px; }
+  .layout { display: flex; flex: 1; overflow: hidden; }
+  .sidebar { width: 200px; background: #F7F7F7; border-right: 1.5px solid #E0E0E0; padding: 20px 0; flex-shrink: 0; }
+  .sidebar-item { padding: 11px 20px; font-size: 12px; color: #555555; display: flex; align-items: center; gap: 10px; border-left: 3px solid transparent; }
+  .sidebar-item.active { background: #EEEEEE; border-left-color: #1A1A1A; font-weight: 700; color: #1A1A1A; }
+  .main { flex: 1; padding: 28px 36px; overflow-y: auto; }
+  .page-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .page-subtitle { font-size: 11px; color: #999999; margin-bottom: 28px; }
+
+  .steps { display: flex; align-items: center; gap: 0; margin-bottom: 32px; }
+  .step-item { display: flex; align-items: center; gap: 10px; }
+  .step-circle { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; }
+  .step-circle.done { background: #E8E8E8; color: #999999; border: 1.5px solid #CCCCCC; }
+  .step-circle.active { background: #1A1A1A; color: #FFFFFF; }
+  .step-circle.upcoming { background: #F5F5F5; color: #CCCCCC; border: 1.5px dashed #CCCCCC; }
+  .step-label { font-size: 11px; font-weight: 700; }
+  .step-label.upcoming { color: #BBBBBB; }
+  .step-label.done { color: #999999; }
+  .step-line { width: 40px; height: 1.5px; background: #CCCCCC; margin: 0 8px; }
+
+  /* UPLOAD ZONE */
+  .upload-zone { border: 2px dashed #BBBBBB; border-radius: 8px; padding: 48px; text-align: center; background: #F0F0F0; margin-bottom: 24px; max-width: 680px; }
+  .upload-icon { width: 56px; height: 56px; background: #E0E0E0; border: 1.5px dashed #AAAAAA; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; margin: 0 auto 16px; }
+  .upload-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .upload-sub { font-size: 11px; color: #999999; margin-bottom: 16px; }
+  .format-tags { display: flex; gap: 8px; justify-content: center; margin-bottom: 16px; }
+  .format-tag { padding: 3px 10px; background: #E8E8E8; border: 1px solid #CCCCCC; border-radius: 3px; font-size: 10px; color: #666666; }
+  .btn-browse { padding: 8px 20px; background: #FFFFFF; color: #1A1A1A; border: 1.5px solid #1A1A1A; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 12px; font-weight: 700; }
+
+  /* FILE LIST */
+  .section-label { font-size: 10px; color: #999999; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; max-width: 680px; }
+  .file-item { background: #FFFFFF; border: 1.5px solid #D0D0D0; border-radius: 4px; padding: 12px 16px; margin-bottom: 8px; display: flex; align-items: center; gap: 12px; max-width: 680px; }
+  .file-type { padding: 3px 8px; background: #E8E8E8; border: 1px solid #CCCCCC; border-radius: 3px; font-size: 10px; color: #555555; flex-shrink: 0; }
+  .file-name { flex: 1; font-size: 12px; color: #333333; }
+  .file-size { font-size: 10px; color: #999999; }
+  .file-remove { font-size: 14px; color: #BBBBBB; cursor: pointer; }
+
+  /* OR DIVIDER */
+  .or-divider { text-align: center; font-size: 11px; color: #CCCCCC; margin: 20px 0; max-width: 680px; }
+  .paste-area { width: 100%; max-width: 680px; height: 100px; background: #E8E8E8; border: 1.5px dashed #AAAAAA; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #AAAAAA; margin-bottom: 24px; }
+
+  .actions { display: flex; gap: 12px; max-width: 680px; }
+  .btn-primary { padding: 10px 24px; background: #1A1A1A; color: #FFFFFF; border: none; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 12px; font-weight: 700; }
+  .btn-back { padding: 10px 24px; background: #FFFFFF; color: #1A1A1A; border: 1.5px solid #1A1A1A; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 12px; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-logo">REQURA.AI</div>
+  <div class="nav-btn">Profile ▾</div>
+</nav>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-item active">+ New Project</div>
+    <div class="sidebar-item">⊞ Dashboard</div>
+    <div class="sidebar-item">≡ Results</div>
+    <div class="sidebar-item">↑ Export</div>
+    <div class="sidebar-item">⚙ Settings</div>
+  </aside>
+  <main class="main">
+    <div class="page-title">Upload Inputs</div>
+    <div class="page-subtitle">Step 2 of 3 — Upload files or paste your transcript</div>
+
+    <div class="steps">
+      <div class="step-item">
+        <div class="step-circle done">✓</div>
+        <div class="step-label done">Project Setup</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-item">
+        <div class="step-circle active">2</div>
+        <div class="step-label">Upload Input</div>
+      </div>
+      <div class="step-line"></div>
+      <div class="step-item">
+        <div class="step-circle upcoming">3</div>
+        <div class="step-label upcoming">AI Processing</div>
+      </div>
+    </div>
+
+    <div class="upload-zone">
+      <div class="upload-icon">↑</div>
+      <div class="upload-title">Drag & Drop Files Here</div>
+      <div class="upload-sub">or click to browse from your computer</div>
+      <div class="format-tags">
+        <div class="format-tag">PDF</div>
+        <div class="format-tag">DOCX</div>
+        <div class="format-tag">TXT</div>
+        <div class="format-tag">MP3</div>
+        <div class="format-tag">MP4</div>
+      </div>
+      <button class="btn-browse">Browse Files</button>
+    </div>
+
+    <div class="section-label">Uploaded Files (2)</div>
+    <div class="file-item">
+      <div class="file-type">PDF</div>
+      <div class="file-name">stakeholder_meeting_january_2025.pdf</div>
+      <div class="file-size">2.4 MB</div>
+      <div class="file-remove">✕</div>
+    </div>
+    <div class="file-item">
+      <div class="file-type">DOCX</div>
+      <div class="file-name">project_brief_v3.docx</div>
+      <div class="file-size">540 KB</div>
+      <div class="file-remove">✕</div>
+    </div>
+
+    <div class="or-divider">— OR PASTE TEXT DIRECTLY —</div>
+    <div class="paste-area">[ Text area — paste raw meeting transcript, notes, or emails here ]</div>
+
+    <div class="actions">
+      <button class="btn-back">← Back</button>
+      <button class="btn-primary">Start AI Processing →</button>
+    </div>
+  </main>
+</div>
+</body>
+</html>

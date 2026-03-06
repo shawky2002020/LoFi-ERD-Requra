@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1440" />
+<title>Requra.AI – Landing Page</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1440px; font-family: 'Courier New', monospace; background: #FAFAFA; }
+
+  /* NAV */
+  .nav { width: 1440px; height: 64px; background: #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
+  .nav-logo { color: #FFFFFF; font-size: 18px; font-weight: 700; letter-spacing: 0.08em; }
+  .nav-actions { display: flex; gap: 12px; }
+  .btn { padding: 8px 20px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 12px; font-weight: 700; cursor: pointer; border: 1.5px solid #1A1A1A; }
+  .btn-outline { background: #FFFFFF; color: #1A1A1A; }
+  .btn-primary { background: #1A1A1A; color: #FFFFFF; }
+  .btn-primary-light { background: #FFFFFF; color: #1A1A1A; border-color: #FFFFFF; }
+  .btn-outline-light { background: transparent; color: #FFFFFF; border-color: #FFFFFF; }
+
+  /* HERO */
+  .hero { padding: 100px 80px 80px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .hero-label { font-size: 11px; color: #999999; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 24px; }
+  .hero-headline { width: 760px; height: 80px; background: #E8E8E8; border: 1.5px dashed #AAAAAA; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #777777; margin-bottom: 16px; }
+  .hero-sub { width: 560px; height: 44px; background: #E8E8E8; border: 1.5px dashed #AAAAAA; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #777777; margin-bottom: 36px; }
+  .hero-btns { display: flex; gap: 14px; }
+
+  /* FEATURES */
+  .features { padding: 60px 80px; }
+  .section-label { font-size: 10px; color: #999999; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 20px; border-bottom: 1px solid #E0E0E0; padding-bottom: 6px; }
+  .features-grid { display: flex; gap: 24px; }
+  .feature-card { flex: 1; background: #FFFFFF; border: 1.5px solid #D0D0D0; border-radius: 8px; padding: 24px; }
+  .feature-icon { width: 100%; height: 64px; background: #E8E8E8; border: 1.5px dashed #AAAAAA; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #777777; margin-bottom: 14px; }
+  .feature-title { font-size: 13px; font-weight: 700; color: #1A1A1A; margin-bottom: 8px; }
+  .feature-desc { width: 100%; height: 40px; background: #F5F5F5; border: 1.5px dashed #CCCCCC; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #AAAAAA; }
+
+  /* HOW IT WORKS */
+  .how { padding: 60px 80px; background: #F0F0F0; }
+  .steps { display: flex; gap: 0; align-items: flex-start; margin-top: 24px; }
+  .step { flex: 1; text-align: center; padding: 0 20px; }
+  .step-num { width: 40px; height: 40px; background: #1A1A1A; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-size: 14px; font-weight: 700; margin: 0 auto 12px; }
+  .step-title { font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+  .step-desc { width: 100%; height: 36px; background: #E0E0E0; border: 1.5px dashed #BBBBBB; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #999999; }
+  .step-arrow { font-size: 20px; color: #AAAAAA; margin-top: 20px; }
+
+  /* SOCIAL PROOF */
+  .social { padding: 60px 80px; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+  .social-banner { width: 100%; height: 80px; background: #E8E8E8; border: 1.5px dashed #AAAAAA; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 13px; color: #777777; }
+  .logos { display: flex; gap: 24px; }
+  .logo-box { width: 100px; height: 40px; background: #E0E0E0; border: 1.5px dashed #BBBBBB; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #AAAAAA; }
+
+  /* FOOTER */
+  .footer { height: 64px; background: #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 80px; }
+  .footer-logo { color: #FFFFFF; font-size: 14px; font-weight: 700; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-link { color: #666666; font-size: 11px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">REQURA.AI</div>
+  <div class="nav-actions">
+    <button class="btn btn-outline-light">Login</button>
+    <button class="btn btn-primary-light">Get Started</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-label">AI Requirements Engineering Tool</div>
+  <div class="hero-headline">[ HERO HEADLINE — Transform Messy Inputs into Structured Requirements ]</div>
+  <div class="hero-sub">[ Subheadline — Bridge stakeholder conversations and development backlogs using Agentic AI ]</div>
+  <div class="hero-btns">
+    <button class="btn btn-primary" style="padding: 12px 28px; font-size: 13px;">Get Started Free</button>
+    <button class="btn btn-outline" style="padding: 12px 28px; font-size: 13px;">Watch Demo</button>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="section-label">Key Features</div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">📄 Upload Transcripts</div>
+      <div class="feature-title">Ingest Any Format</div>
+      <div class="feature-desc">[ PDF, DOCX, Audio — all supported ]</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🤖 AI Extracts Stories</div>
+      <div class="feature-title">Automatic Extraction</div>
+      <div class="feature-desc">[ AI identifies actors, goals, and requirements ]</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊 Export to Jira</div>
+      <div class="feature-title">Ready for Dev Teams</div>
+      <div class="feature-desc">[ Excel/CSV export, Jira-ready columns ]</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">👥 Stakeholder Review</div>
+      <div class="feature-title">Collaborative Approval</div>
+      <div class="feature-desc">[ Share with clients via read-only link ]</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="section-label">How It Works</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Upload Input</div>
+      <div class="step-desc">[ Upload transcript or paste text ]</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">AI Processes</div>
+      <div class="step-desc">[ AI extracts & classifies requirements ]</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Review & Edit</div>
+      <div class="step-desc">[ BA/PM refines the generated stories ]</div>
+    </div>
+    <div class="step-arrow">→</div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-title">Export</div>
+      <div class="step-desc">[ Download Excel or share with stakeholders ]</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="social">
+  <div class="social-banner">[ SOCIAL PROOF — Trusted by 200+ Business Analysts and Project Managers across MENA ]</div>
+  <div class="logos">
+    <div class="logo-box">Company 1</div>
+    <div class="logo-box">Company 2</div>
+    <div class="logo-box">Company 3</div>
+    <div class="logo-box">Company 4</div>
+    <div class="logo-box">Company 5</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">REQURA.AI</div>
+  <div class="footer-links">
+    <span class="footer-link">Privacy Policy</span>
+    <span class="footer-link">Terms of Service</span>
+    <span class="footer-link">Contact</span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -140,7 +140,7 @@ const Sidebar = ({ go, current }) => {
 
 // ── SCREEN: LANDING ──────────────────────────────────────────────────────────
 const Landing = ({ go }) => (
-  <div style={{ height: "100%", background: "#fafafa", display: "flex", flexDirection: "column", overflowY: "auto" }}>
+  <div style={{ minHeight: "100vh", background: "#fafafa", display: "flex", flexDirection: "column" }}>
     <NavBar go={go} current="Landing" />
     <div style={{
       flex: 1, display: "flex", flexDirection: "column", alignItems: "center",
@@ -179,8 +179,8 @@ const Landing = ({ go }) => (
 // ── SCREEN: LOGIN ────────────────────────────────────────────────────────────
 const Login = ({ go }) => (
   <div style={{
-    height: "100%", background: "#fafafa", display: "flex",
-    flexDirection: "column", alignItems: "center", justifyContent: "center", overflowY: "auto"
+    minHeight: "100vh", background: "#fafafa", display: "flex",
+    flexDirection: "column", alignItems: "center", justifyContent: "center"
   }}>
     <div style={{
       width: 380, background: "#fff", border: "1.5px solid #d0d0d0",
@@ -219,8 +219,8 @@ const Login = ({ go }) => (
 // ── SCREEN: REGISTER ─────────────────────────────────────────────────────────
 const Register = ({ go }) => (
   <div style={{
-    height: "100%", background: "#fafafa", display: "flex",
-    flexDirection: "column", alignItems: "center", justifyContent: "center", overflowY: "auto"
+    minHeight: "100vh", background: "#fafafa", display: "flex",
+    flexDirection: "column", alignItems: "center", justifyContent: "center"
   }}>
     <div style={{
       width: 400, background: "#fff", border: "1.5px solid #d0d0d0",
@@ -261,9 +261,9 @@ const Register = ({ go }) => (
 
 // ── SCREEN: DASHBOARD ────────────────────────────────────────────────────────
 const Dashboard = ({ go }) => (
-  <div style={{ height: "100%", background: "#fafafa", display: "flex", flexDirection: "column" }}>
+  <div style={{ minHeight: "100vh", background: "#fafafa", display: "flex", flexDirection: "column" }}>
     <NavBar go={go} current="Dashboard" showSidebar />
-    <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>
+    <div style={{ display: "flex", flex: 1 }}>
       <Sidebar go={go} current="Dashboard" />
       <div style={{ flex: 1, padding: 28, overflowY: "auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }}>
@@ -316,11 +316,11 @@ const Dashboard = ({ go }) => (
 
 // ── SCREEN: NEW PROJECT ───────────────────────────────────────────────────────
 const NewProject = ({ go }) => (
-  <div style={{ height: "100%", background: "#fafafa", display: "flex", flexDirection: "column" }}>
+  <div style={{ minHeight: "100vh", background: "#fafafa", display: "flex", flexDirection: "column" }}>
     <NavBar go={go} current="NewProject" showSidebar />
-    <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>
+    <div style={{ display: "flex", flex: 1 }}>
       <Sidebar go={go} current="NewProject" />
-      <div style={{ flex: 1, padding: 28, maxWidth: 640, overflowY: "auto" }}>
+      <div style={{ flex: 1, padding: 28, maxWidth: 640 }}>
         <div style={{ fontFamily: "monospace", fontWeight: 700, fontSize: 18, marginBottom: 4 }}>New Project</div>
         <div style={{ fontFamily: "monospace", fontSize: 11, color: "#999", marginBottom: 24 }}>Set up your project details before uploading inputs</div>
 
@@ -351,11 +351,11 @@ const NewProject = ({ go }) => (
 
 // ── SCREEN: UPLOAD ────────────────────────────────────────────────────────────
 const Upload = ({ go }) => (
-  <div style={{ height: "100%", background: "#fafafa", display: "flex", flexDirection: "column" }}>
+  <div style={{ minHeight: "100vh", background: "#fafafa", display: "flex", flexDirection: "column" }}>
     <NavBar go={go} current="Upload" showSidebar />
-    <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>
+    <div style={{ display: "flex", flex: 1 }}>
       <Sidebar go={go} current="NewProject" />
-      <div style={{ flex: 1, padding: 28, maxWidth: 640, overflowY: "auto" }}>
+      <div style={{ flex: 1, padding: 28, maxWidth: 640 }}>
         <div style={{ fontFamily: "monospace", fontWeight: 700, fontSize: 18, marginBottom: 4 }}>Upload Inputs</div>
         <div style={{ fontFamily: "monospace", fontSize: 11, color: "#999", marginBottom: 24 }}>Upload files or paste your transcript directly</div>
 
@@ -417,8 +417,8 @@ const Processing = ({ go }) => {
   ];
   return (
     <div style={{
-      height: "100%", background: "#fafafa", display: "flex",
-      flexDirection: "column", alignItems: "center", justifyContent: "center", overflowY: "auto"
+      minHeight: "100vh", background: "#fafafa", display: "flex",
+      flexDirection: "column", alignItems: "center", justifyContent: "center"
     }}>
       <Card style={{ width: 440, textAlign: "center" }}>
         <Box w={64} h={64} label="🤖" style={{ margin: "0 auto 20px", borderRadius: "50%", fontSize: 28 }} />
@@ -483,9 +483,9 @@ const Results = ({ go }) => {
     { title: "Export to Excel", actor: "Business Analyst", goal: "export stories as Excel/CSV", benefit: "import into Jira", tag: "Business", approved: false },
   ];
   return (
-    <div style={{ height: "100%", background: "#fafafa", display: "flex", flexDirection: "column" }}>
+    <div style={{ minHeight: "100vh", background: "#fafafa", display: "flex", flexDirection: "column" }}>
       <NavBar go={go} current="Results" showSidebar />
-      <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>
+      <div style={{ display: "flex", flex: 1 }}>
         <Sidebar go={go} current="Results" />
         <div style={{ flex: 1, padding: 28, overflowY: "auto" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
@@ -605,11 +605,11 @@ const Results = ({ go }) => {
 
 // ── SCREEN: STORY DETAIL ──────────────────────────────────────────────────────
 const StoryDetail = ({ go }) => (
-  <div style={{ height: "100%", background: "#fafafa", display: "flex", flexDirection: "column" }}>
+  <div style={{ minHeight: "100vh", background: "#fafafa", display: "flex", flexDirection: "column" }}>
     <NavBar go={go} current="StoryDetail" showSidebar />
-    <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>
+    <div style={{ display: "flex", flex: 1 }}>
       <Sidebar go={go} current="Results" />
-      <div style={{ flex: 1, padding: 28, maxWidth: 640, overflowY: "auto" }}>
+      <div style={{ flex: 1, padding: 28, maxWidth: 640 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
           <span style={{ fontFamily: "monospace", fontSize: 12, cursor: "pointer", color: "#999" }}
             onClick={() => go("Results")}>← Results</span>
@@ -660,11 +660,11 @@ const StoryDetail = ({ go }) => (
 
 // ── SCREEN: EXPORT ────────────────────────────────────────────────────────────
 const Export = ({ go }) => (
-  <div style={{ height: "100%", background: "#fafafa", display: "flex", flexDirection: "column" }}>
+  <div style={{ minHeight: "100vh", background: "#fafafa", display: "flex", flexDirection: "column" }}>
     <NavBar go={go} current="Export" showSidebar />
-    <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>
+    <div style={{ display: "flex", flex: 1 }}>
       <Sidebar go={go} current="Export" />
-      <div style={{ flex: 1, padding: 28, overflowY: "auto" }}>
+      <div style={{ flex: 1, padding: 28 }}>
         <div style={{ fontFamily: "monospace", fontWeight: 700, fontSize: 18, marginBottom: 4 }}>Export</div>
         <div style={{ fontFamily: "monospace", fontSize: 11, color: "#999", marginBottom: 24 }}>Download approved requirements in your preferred format</div>
 
@@ -751,7 +751,7 @@ const Export = ({ go }) => (
 
 // ── SCREEN: STAKEHOLDER VIEW ──────────────────────────────────────────────────
 const StakeholderView = ({ go }) => (
-  <div style={{ height: "100%", background: "#fafafa", display: "flex", flexDirection: "column" }}>
+  <div style={{ minHeight: "100vh", background: "#fafafa", display: "flex", flexDirection: "column" }}>
     <div style={{
       height: 48, background: "#1a1a1a", display: "flex", alignItems: "center",
       justifyContent: "space-between", padding: "0 20px", flexShrink: 0
@@ -759,7 +759,7 @@ const StakeholderView = ({ go }) => (
       <span style={{ color: "#fff", fontFamily: "monospace", fontWeight: 700, fontSize: 14 }}>REQURA.AI</span>
       <Tag label="Read-only View" color="#333" />
     </div>
-    <div style={{ flex: 1, padding: "28px 40px", maxWidth: 780, margin: "0 auto", width: "100%", overflowY: "auto" }}>
+    <div style={{ flex: 1, padding: "28px 40px", maxWidth: 780, margin: "0 auto", width: "100%" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
         <div style={{ fontFamily: "monospace", fontWeight: 700, fontSize: 20 }}>E-Commerce Platform v2</div>
         <Btn label="✓ Approve All" primary />
@@ -811,11 +811,11 @@ const StakeholderView = ({ go }) => (
 
 // ── SCREEN: SETTINGS ──────────────────────────────────────────────────────────
 const Settings = ({ go }) => (
-  <div style={{ height: "100%", background: "#fafafa", display: "flex", flexDirection: "column" }}>
+  <div style={{ minHeight: "100vh", background: "#fafafa", display: "flex", flexDirection: "column" }}>
     <NavBar go={go} current="Settings" showSidebar />
-    <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>
+    <div style={{ display: "flex", flex: 1 }}>
       <Sidebar go={go} current="Settings" />
-      <div style={{ flex: 1, padding: 28, maxWidth: 600, overflowY: "auto" }}>
+      <div style={{ flex: 1, padding: 28, maxWidth: 600 }}>
         <div style={{ fontFamily: "monospace", fontWeight: 700, fontSize: 18, marginBottom: 24 }}>Profile & Settings</div>
 
         <Section title="Account Information">
@@ -893,11 +893,12 @@ export default function App() {
   const Screen = screenMap[current];
 
   return (
-    <div style={{ fontFamily: "monospace", height: "100%", display: "flex", flexDirection: "column", overflow: "hidden" }}>
+    <div style={{ fontFamily: "monospace" }}>
       {/* Screen Picker */}
       <div style={{
+        position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 9999,
         background: "#111", borderTop: "2px solid #333", padding: "8px 16px",
-        display: "flex", gap: 6, overflowX: "auto", alignItems: "center", flexShrink: 0
+        display: "flex", gap: 6, overflowX: "auto", alignItems: "center"
       }}>
         <span style={{
           color: "#666", fontSize: 9, textTransform: "uppercase",
@@ -914,7 +915,7 @@ export default function App() {
         ))}
       </div>
       {/* Current Screen */}
-      <div style={{ flex: 1, position: "relative", overflow: "hidden" }}>
+      <div style={{ paddingBottom: 50 }}>
         <Screen go={setCurrent} />
       </div>
     </div>

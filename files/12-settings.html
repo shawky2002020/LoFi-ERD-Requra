@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1440" />
+<title>Requra.AI – Settings</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1440px; font-family: 'Courier New', monospace; background: #FAFAFA; display: flex; flex-direction: column; height: 900px; }
+  .nav { width: 1440px; height: 64px; background: #1A1A1A; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; flex-shrink: 0; }
+  .nav-logo { color: #FFFFFF; font-size: 16px; font-weight: 700; }
+  .nav-btn { padding: 6px 14px; background: #333333; color: #CCCCCC; border: 1px solid #444444; border-radius: 3px; font-size: 11px; }
+  .layout { display: flex; flex: 1; overflow: hidden; }
+  .sidebar { width: 200px; background: #F7F7F7; border-right: 1.5px solid #E0E0E0; padding: 20px 0; flex-shrink: 0; }
+  .sidebar-item { padding: 11px 20px; font-size: 12px; color: #555555; display: flex; align-items: center; gap: 10px; border-left: 3px solid transparent; }
+  .sidebar-item.active { background: #EEEEEE; border-left-color: #1A1A1A; font-weight: 700; color: #1A1A1A; }
+  .main { flex: 1; padding: 24px 36px; overflow-y: auto; }
+  .page-title { font-size: 20px; font-weight: 700; margin-bottom: 28px; }
+
+  .section-label { font-size: 10px; color: #999999; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 12px; border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; }
+  .card { background: #FFFFFF; border: 1.5px solid #D0D0D0; border-radius: 6px; padding: 22px; margin-bottom: 24px; max-width: 620px; }
+
+  /* AVATAR */
+  .avatar-row { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+  .avatar { width: 60px; height: 60px; background: #E8E8E8; border: 1.5px dashed #AAAAAA; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; flex-shrink: 0; }
+  .btn-photo { padding: 6px 14px; background: #FFFFFF; color: #555555; border: 1.5px solid #CCCCCC; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 10px; }
+
+  .field { margin-bottom: 16px; }
+  .field-label { font-size: 10px; color: #999999; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .field-input { width: 100%; height: 40px; background: #FFFFFF; border: 1.5px solid #CCCCCC; border-radius: 4px; display: flex; align-items: center; padding: 0 14px; font-size: 12px; color: #333333; }
+
+  .btn-save { padding: 9px 20px; background: #1A1A1A; color: #FFFFFF; border: none; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 12px; font-weight: 700; margin-top: 8px; }
+
+  /* LANGUAGE */
+  .lang-group { display: flex; gap: 10px; }
+  .lang-option { flex: 1; height: 40px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; cursor: pointer; }
+  .lang-option.active { background: #1A1A1A; color: #FFFFFF; border: 1.5px solid #1A1A1A; }
+  .lang-option.inactive { background: #F5F5F5; color: #AAAAAA; border: 1.5px dashed #CCCCCC; }
+
+  /* SUBSCRIPTION */
+  .sub-row { display: flex; justify-content: space-between; align-items: center; }
+  .sub-plan { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+  .sub-detail { font-size: 11px; color: #999999; }
+  .btn-upgrade { padding: 8px 18px; background: #1A1A1A; color: #FFFFFF; border: none; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 11px; font-weight: 700; }
+  .usage-bar { height: 6px; background: #E8E8E8; border-radius: 3px; margin-top: 12px; overflow: hidden; }
+  .usage-fill { width: 40%; height: 100%; background: #1A1A1A; border-radius: 3px; }
+  .usage-label { font-size: 10px; color: #AAAAAA; margin-top: 4px; }
+
+  /* NOTIFICATIONS */
+  .notif-row { display: flex; justify-content: space-between; align-items: center; padding: 11px 0; border-bottom: 1px solid #F0F0F0; }
+  .notif-row:last-child { border-bottom: none; }
+  .notif-label { font-size: 12px; color: #333333; }
+  .toggle { width: 40px; height: 22px; background: #1A1A1A; border-radius: 11px; display: flex; align-items: center; padding: 0 3px; cursor: pointer; }
+  .toggle-dot { width: 16px; height: 16px; background: #FFFFFF; border-radius: 50%; margin-left: auto; }
+  .toggle.off { background: #E0E0E0; }
+  .toggle.off .toggle-dot { margin-left: 0; margin-right: auto; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-logo">REQURA.AI</div>
+  <div class="nav-btn">Profile ▾</div>
+</nav>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-item">⊞ Dashboard</div>
+    <div class="sidebar-item">+ New Project</div>
+    <div class="sidebar-item">≡ Results</div>
+    <div class="sidebar-item">↑ Export</div>
+    <div class="sidebar-item active">⚙ Settings</div>
+  </aside>
+  <main class="main">
+    <div class="page-title">Profile & Settings</div>
+
+    <!-- Account -->
+    <div class="section-label">Account Information</div>
+    <div class="card">
+      <div class="avatar-row">
+        <div class="avatar">👤</div>
+        <button class="btn-photo">Change Photo</button>
+      </div>
+      <div class="field">
+        <div class="field-label">Full Name</div>
+        <div class="field-input">Carol Ehab Anwar</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Email Address</div>
+        <div class="field-input">carol@requra.ai</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Role</div>
+        <div class="field-input">Business Analyst</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Organization</div>
+        <div class="field-input">Requra Team</div>
+      </div>
+      <button class="btn-save">Save Changes</button>
+    </div>
+
+    <!-- Language -->
+    <div class="section-label">Language Preferences</div>
+    <div class="card">
+      <div class="lang-group">
+        <div class="lang-option active">🇬🇧 English</div>
+        <div class="lang-option inactive">🇦🇪 Arabic 🔒 (Post-MVP)</div>
+      </div>
+    </div>
+
+    <!-- Subscription -->
+    <div class="section-label">Subscription & Usage</div>
+    <div class="card">
+      <div class="sub-row">
+        <div>
+          <div class="sub-plan">Free Plan</div>
+          <div class="sub-detail">5 projects · 20 stories per month</div>
+        </div>
+        <button class="btn-upgrade">Upgrade ↑</button>
+      </div>
+      <div class="usage-bar"><div class="usage-fill"></div></div>
+      <div class="usage-label">8 of 20 stories used this month</div>
+    </div>
+
+    <!-- Notifications -->
+    <div class="section-label">Notification Settings</div>
+    <div class="card">
+      <div class="notif-row">
+        <div class="notif-label">Email alerts for new stakeholder comments</div>
+        <div class="toggle"><div class="toggle-dot"></div></div>
+      </div>
+      <div class="notif-row">
+        <div class="notif-label">In-app notifications</div>
+        <div class="toggle"><div class="toggle-dot"></div></div>
+      </div>
+      <div class="notif-row">
+        <div class="notif-label">Weekly project summary report</div>
+        <div class="toggle off"><div class="toggle-dot"></div></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>

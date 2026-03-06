@@ -390,7 +390,7 @@ export default function ERD() {
     : [];
 
   return (
-    <div style={{ background: COLORS.bg, height: "100%", fontFamily: "'JetBrains Mono', monospace", color: COLORS.text, overflow: "hidden", display: "flex", flexDirection: "column" }}>
+    <div style={{ background: COLORS.bg, minHeight: "100vh", fontFamily: "'JetBrains Mono', monospace", color: COLORS.text }}>
       {/* Header */}
       <div style={{
         borderBottom: `1px solid ${COLORS.border}`,
